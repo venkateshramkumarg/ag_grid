@@ -20,31 +20,14 @@ function MyTable() {
     const paginationPageSize =10;
     const paginationPageSizeSelector = [5, 10, 15,20,25,30,40,50,100];
 
-    // const [columnDefs] = useState([
-    //     // {headerName:'trainNumber & trainName',valueGetter:p=>p.data.trainNumber+'-'+p.data.trainName,checkboxSelection: true,flex:1},
-    //     { field: 'trainNumber', filter:"agNumberColumnFilter", editable: true, cellEditor: 'agNumberCellEditor'},
-    //     { field: 'trainName', filter:"agColumnFilter" },
-    //     { field: 'trainType', filter: 'agSetColumnFilter', editable: true,
-    //         cellEditor: 'agSelectCellEditor',
-    //         cellEditorParams: {
-    //             values: ['Shatabdi', 'Rajdhani', 'Express', 'Humsafar', 'Mail', 'Garib Rath', 'Duronto'],
-    //         },
-    //         filterParams: {
-    //           values: ['Rajdhani', 'Express', 'Shatabdi','Humsafar', 'Mail', 'Garib Rath', 'Duronto', 'Venkatesh'],
-    //       }
-    //     },
-    //     { field: 'noOfSeats', valueFormatter: p => p.value.toLocaleString() + " Seats", 
-    //         editable: p => p.data.trainType === 'Shatabdi',cellEditor: 'agNumberCellEditor' 
-    //     },
-    // ]);
     const [colDefs, setColDefs] = useState([
-      { field: "mission" },
+      { field: "mission",filter:'agTextColumnFilter' },
       { field: "company",filter:CompanyFilter,filterParams:{
         values:['SpaceX','ISRO','Roscosmos'] 
       }},
       { field: "location" },
       { field: "date" },
-      { field: "price" },
+      { field: "price",filter:'agNumberColumnFilter' },
       { field: "successful" },
       { field: "rocket" }
     ]);
